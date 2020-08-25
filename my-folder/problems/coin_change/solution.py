@@ -1,11 +1,10 @@
-class Solution(object):
-    def coinChange(self, coins, amount):
-        temp_arr = [amount+1] *(amount+1)
-        temp_arr[0]=0
-        for i in range(1, amount+1):
-            for value in coins:
-                if i >=value:
-                    temp_arr[i] = min(temp_arr[i], temp_arr[i-value]+1)
-        if temp_arr[amount] == amount+1:
-            return -1
-        return temp_arr[amount]
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [float("inf")] * (amount + 1) 
+        dp[0] = 0                           
+
+        for currCoin in coins:
+            for currAmount in range(currCoin, amount + 1):
+                dp[currAmount] = min(dp[currAmount], dp[currAmount - currCoin] + 1)
+
+        return dp[-1] if dp[-1] != float("inf") else -1
