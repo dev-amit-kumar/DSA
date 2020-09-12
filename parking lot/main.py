@@ -100,8 +100,10 @@ if __name__ == "__main__":
             else:
                 print("Wrong input")
     elif a == 2:
-        while(True):
-            take = input().split(" ")
+        input_file = open("file.txt","r")
+        all_input_lines = input_file.readlines()
+        for input_line in all_input_lines:
+            take = input_line.split(" ")
             if take[0] == 'create_parking_lot':
                 aa = ParkingLot(take[1])
 
@@ -128,5 +130,6 @@ if __name__ == "__main__":
 
             else:
                 print("Wrong input")
+        input_file.close()
     else:
         print("Choose from 2 options only")
