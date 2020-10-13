@@ -9,7 +9,8 @@ def binary_search(all_item, search_no, start, end):
     elif(all_item[mid] > search_no):
         return binary_search(all_item, search_no, start, mid-1)
 
+
 if __name__ == "__main__":
     search = int(input())
-    all_item = list(map(int,input().split()))
+    all_item = list(map(int, input().split()))
     print(binary_search(all_item, search, 0, len(all_item)-1))

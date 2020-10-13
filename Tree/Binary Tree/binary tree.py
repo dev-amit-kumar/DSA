@@ -57,8 +57,8 @@ class binaryTree:
 if __name__ == "__main__":
     tree = binaryTree()
     # arr = list(map(int, input().split()))
-    arr = [1, 2, 3, 4, 5]
+    arr = [3, 9, 20, None, None, 15, 7]
     for i in arr:
         tree.insertValue(i)
     tree.printLevelOrder()
-    tree.LeftView()
+    # tree.LeftView()
