@@ -28,4 +28,4 @@ while len_a >= 0 or len_b >= 0:
 if carry:
     res.append(carry)
 
-print (res)
+print(res)
