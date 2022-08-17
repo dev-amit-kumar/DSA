@@ -1,12 +1,24 @@
-class Solution:
-    def fib(self, N: int) -> int:
-        f=[0 for i in range(N+1)]
-        if N==0:
-            return 0
-        if N==1:
-            return 1
-        f[0]=0
-        f[1]=1
-        for i in range(2,N+1):
-            f[i]=f[i-1]+f[i-2]
-        return f[N]
+class Solution(object):
+    def fib(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        # Approach 1
+        # a = 0
+        # b = 1
+        # c = 1
+        # if(n == 0):
+        #     return a
+        # elif (n == 1):
+        #     return b
+        # else:
+        #     for i in range(1, n):
+        #         c = a + b
+        #         a = b
+        #         b = c
+        #     return b
+        # Approach 2
+        if (n == 0 or n == 1):
+            return n
+        return self.fib(n-1) + self.fib(n-2)
