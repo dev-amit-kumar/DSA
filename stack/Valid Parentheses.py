@@ -37,15 +37,19 @@ def isValid(self, s: str) -> bool:
     else:
         return False
 '''
+
+
 def isValid(s):
     stack = []
-    open_close_p = {"(" : ")", "{": "}", "[": "]"}
+    open_close_p = {"(": ")", "{": "}", "[": "]"}
     for i in s:
-        if(stack and i == open_close_p[stack[-1]]):
+        if (stack and i == open_close_p[stack[-1]]):
             stack.pop()
         else:
             stack.append(i)
     return stack == []
+
+
 if __name__ == "__main__":
     s = input()
     print(isValid(s))
