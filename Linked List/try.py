@@ -1,20 +1,22 @@
 class Node:
-    def __init__(self ,data):
+    def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def getCount(self):
-        #code here
+        # code here
         lentgh = 0
         node = self.head
-        while(node):
-            lentgh +=1
+        while (node):
+            lentgh += 1
             node = node.next
         print(lentgh)
+
 
 a = LinkedList()
 a.head = Node(5)
@@ -22,7 +24,6 @@ a.head.next = Node(10)
 a.head.next.next = Node(11)
 a.head.next.next.next = Node(12)
 a.getCount()
-
 
 
 # class Node:

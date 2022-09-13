@@ -17,31 +17,33 @@
 #          self.generateParenthesisUtil(left, right-1, temp + ')', result)
 # ob = Solution()
 # print(ob.generateParenthesis(10))
-def find(openB, closeB, n, s,ans):
-    if(closeB == n):
+def find(openB, closeB, n, s, ans):
+    if (closeB == n):
         ans.append(''.join(s))
         return
     else:
-        if(openB>closeB):
+        if (openB > closeB):
             s.append(')')
-            find(openB, closeB+1, n, s,ans)
+            find(openB, closeB+1, n, s, ans)
             s.pop()
-        if(openB<n):
+        if (openB < n):
             s.append('(')
-            find(openB+1, closeB, n ,s,ans)
+            find(openB+1, closeB, n, s, ans)
             s.pop()
     return
+
+
 ans = []
 s = []
-find(0,0,2,s,ans)
+find(0, 0, 2, s, ans)
 print(ans)
-
 
 
 class Solution(object):
     def generateParenthesis(self, N):
         ans = []
-        def backtrack(S = '', left = 0, right = 0):
+
+        def backtrack(S='', left=0, right=0):
             if len(S) == 2 * N:
                 ans.append(S)
                 return
@@ -52,23 +54,25 @@ class Solution(object):
 
         backtrack()
         return ans
-class Solution(object):
+
+
+class Solution1(object):
     def generateParenthesis(self, N):
         ans = []
+
         def find(openB, closeB, N, s):
-            if(closeB == N):
+            if (closeB == N):
                 ans.append(''.join(s))
                 return
             else:
-                if(openB>closeB):
+                if (openB > closeB):
                     s.append(')')
                     find(openB, closeB+1, N, s)
                     s.pop()
-                if(openB<N):
+                if (openB < N):
                     s.append('(')
-                    find(openB+1, closeB, N ,s)
+                    find(openB+1, closeB, N, s)
                     s.pop()
             return
-        find(0,0,N,[])
+        find(0, 0, N, [])
         return ans
-        
