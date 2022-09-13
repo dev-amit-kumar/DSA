@@ -1,11 +1,12 @@
 # Ques https://leetcode.com/problems/two-sum/
 
-# def brute_ans(arr,sum):
-#     for i in range(0,len(arr),1):
-#         for j in range(i+1,len(arr),1):
-#             if (arr[i]+arr[j]==sum):
-#                 print(arr[i],arr[j])
+# def brute_ans(arr, sum):
+#     for i in range(0, len(arr), 1):
+#         for j in range(i+1, len(arr), 1):
+#             if (arr[i]+arr[j] == sum):
+#                 print(arr[i], arr[j])
 #                 return
+
 
 def logn_ans(arr, sum):
     for i in range(0, len(arr), 1):
@@ -14,11 +15,12 @@ def logn_ans(arr, sum):
                 print(arr[i], arr[j])
                 return
 
-# def n_ans(arr,sum):
-#     for i in range(0,len(arr),1):
-#         for j in range(i+1,len(arr),1):
-#             if (arr[i]+arr[j]==sum):
-#                 print(arr[i],arr[j])
+
+# def n_ans(arr, sum):
+#     for i in range(0, len(arr), 1):
+#         for j in range(i+1, len(arr), 1):
+#             if (arr[i]+arr[j] == sum):
+#                 print(arr[i], arr[j])
 #                 return
 
 

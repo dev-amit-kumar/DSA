@@ -13,15 +13,17 @@ import sys
 # The function accepts 2D_INTEGER_ARRAY arr as parameter.
 #
 
+
 def diagonalDifference(arr):
-    first =0
-    second=0
+    first = 0
+    second = 0
     length = len(arr[0])
     for i in range(length):
         first += arr[i][i]
         second += arr[i][(length-i-1)]
     return abs(first-second)
-    
+
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 

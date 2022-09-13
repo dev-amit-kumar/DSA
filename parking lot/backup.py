@@ -5,25 +5,25 @@ class ParkingLot:
         self.total_slot = total_space
         for i in range(1, int(total_space)+1):
             self.parking[i] = []
-        print("Created a parking lot with", total_space,"slots")
-    
+        print("Created a parking lot with", total_space, "slots")
+
     def ParkCar(self, regno, color):
         for key, values in self.parking.items():
             if values == []:
                 values.append(regno)
                 values.append(color)
-                print("Allocated slot number: ",key)
+                print("Allocated slot number: ", key)
                 self.total_car += 1
-                return      
+                return
         print("Sorry, parking lot is full")
 
     def LeaveParkingSlot(self, slot):
         if self.parking[int(slot)] != []:
             self.parking[int(slot)] = []
-            print("Slot number",slot,"is free")
+            print("Slot number", slot, "is free")
             self.total_car -= 1
         else:
-            print("Slot number",slot,"is already free")
+            print("Slot number", slot, "is already free")
 
     def PrintParkingLot(self):
         if self.total_car == 0:
@@ -32,9 +32,9 @@ class ParkingLot:
         print("Slot No. Registration No Colour")
         for key, values in self.parking.items():
             if values != []:
-                print(key, values[0],values[1])
+                print(key, values[0], values[1])
 
-    def FetchRegNoByColor(self,color):
+    def FetchRegNoByColor(self, color):
         notFound = True
         for key, values in self.parking.items():
             if self.parking[key] != []:
@@ -43,7 +43,7 @@ class ParkingLot:
                         print(values[0], end="")
                         notFound = False
                     else:
-                        print(",",values[0])
+                        print(",", values[0])
         if notFound:
             print("Not found")
 
@@ -56,7 +56,7 @@ class ParkingLot:
                         print(key, end="")
                         notFound = False
                     else:
-                        print(",",key)
+                        print(",", key)
         if notFound:
             print("Not found")
 
@@ -67,11 +67,12 @@ class ParkingLot:
                     print(key)
                     return
         print("Not found")
-        
+
+
 if __name__ == "__main__":
     a = int(input("Press 1 for Interative commands & Press 2 for File Commands: "))
     if a == 1:
-        while(True):
+        while (True):
             take = input().split(" ")
             if take[0] == 'create_parking_lot':
                 aa = ParkingLot(take[1])
@@ -100,7 +101,7 @@ if __name__ == "__main__":
             else:
                 print("Wrong input")
     elif a == 2:
-        while(True):
+        while (True):
             take = input().split(" ")
             if take[0] == 'create_parking_lot':
                 aa = ParkingLot(take[1])

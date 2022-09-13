@@ -40,7 +40,7 @@ if __name__ == "__main__":
         # logic to create new node
         node = Create_Node(user_val)
         # logic to append this node to linked list
-        if(list.head is None):
+        if (list.head is None):
             list.head = node
             temp = list.head
         else:

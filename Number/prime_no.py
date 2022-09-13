@@ -1,11 +1,11 @@
 # Python Program to find Prime Number
- 
+
 Number = int(input(" Please Enter any Number: "))
 flag = 0
 i = 2
 
-while(i <= Number//2):
-    if(Number % i == 0):
+while (i <= Number//2):
+    if (Number % i == 0):
         flag = 1
         break
     i = i + 1

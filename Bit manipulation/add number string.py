@@ -7,12 +7,12 @@ len_a = len(num1)-1
 len_b = len(num2)-1
 
 while len_a >= 0 or len_b >= 0:
-    if(len_a >= 0):
+    if (len_a >= 0):
         x = 0
     else:
         x = ord(num1[len_a]) - ord('0')
 
-    if(len_a >= 0):
+    if (len_a >= 0):
         y = 0
     else:
         y = ord(num2[len_b]) - ord('0')

@@ -1,10 +1,10 @@
 def combination_sum(all_item, idx, res, total):
-    if(total == 0):
+    if (total == 0):
         print(res)
         return
-    if(total <0):
+    if (total < 0):
         return
-    if(idx == len(all_item)):
+    if (idx == len(all_item)):
         return
 
     res.append(all_item[idx])
@@ -15,6 +15,7 @@ def combination_sum(all_item, idx, res, total):
     res.pop()
     combination_sum(all_item, idx+1, res, total)
 
+
 if __name__ == "__main__":
     testcase = int(input())
     for i in range(testcase):
@@ -22,5 +23,5 @@ if __name__ == "__main__":
         all_item = list(map(int, input().split()))
         total = int(input())
         print("------------------------")
-        if(len(all_item) == n):
+        if (len(all_item) == n):
             combination_sum(all_item, 0, [], total)

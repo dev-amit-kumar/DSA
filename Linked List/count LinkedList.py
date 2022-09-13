@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
 
     def __init__(self):
@@ -19,20 +20,20 @@ class LinkedList:
             self.head = NewNode
             return
         temp = self.head
-        while(temp.next):
+        while (temp.next):
             temp = temp.next
-        temp.next=NewNode
+        temp.next = NewNode
 
-    def reverse(self): 
+    def reverse(self):
         prev = None
-        current = self.head 
-        while(current is not None): 
+        current = self.head
+        while (current is not None):
             next = current.next
-            current.next = prev 
-            prev = current 
+            current.next = prev
+            prev = current
             current = next
-        self.head = prev 
-    
+        self.head = prev
+
     # def deleteNode(self, RemoveKey):
     #     temp = self.head
     #     if(temp):
@@ -67,16 +68,17 @@ class LinkedList:
     def getCount(self):
         temp = self.head
         count = 0
-        while(temp):
+        while (temp):
             temp = temp.next
             count += 1
         print(count)
-    
+
     def printLinkedList(self):
         temp = self.head
-        while(temp):
+        while (temp):
             print(temp.data)
             temp = temp.next
+
 
 if __name__ == "__main__":
     n = int(input())

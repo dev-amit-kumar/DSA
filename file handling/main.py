@@ -1,7 +1,7 @@
-file = open("file.txt","r")
+file = open("file.txt", "r")
 
 listOfLines = file.readlines()
 
 for line in listOfLines:
-	print(line,end="")
+    print(line, end="")
 file.close()

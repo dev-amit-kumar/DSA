@@ -72,7 +72,7 @@ class ParkingLot:
 if __name__ == "__main__":
     a = int(input("Press 1 for Interative commands & Press 2 for File Commands: "))
     if a == 1:
-        while(True):
+        while (True):
             take = input().split(" ")
             if take[0] == 'create_parking_lot':
                 aa = ParkingLot(take[1])

@@ -1,12 +1,12 @@
 def binary_search(all_item, search_no, start, end):
     mid = (start+end)//2
-    if(start > end):
+    if (start > end):
         return False
-    elif(all_item[mid] == search_no):
+    elif (all_item[mid] == search_no):
         return True
-    elif(all_item[mid] < search_no):
+    elif (all_item[mid] < search_no):
         return binary_search(all_item, search_no, mid + 1, end)
-    elif(all_item[mid] > search_no):
+    elif (all_item[mid] > search_no):
         return binary_search(all_item, search_no, start, mid-1)
 
 
