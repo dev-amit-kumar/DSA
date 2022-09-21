@@ -1,9 +1,0 @@
-{
-    "python.pythonPath": "C:\\Users\\amitj\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
-    "files.associations": {
-        "*.scss": "scss",
-        "stack": "cpp",
-        "iostream": "cpp",
-        "ostream": "cpp"
-    }
-}

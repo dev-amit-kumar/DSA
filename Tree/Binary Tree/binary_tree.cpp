@@ -142,6 +142,23 @@ void postOrder(node *root)
     cout << root->data << " ";
 }
 
+int isBalanced(node *root)
+{
+    if (root == NULL)
+        return 0;
+    int lh = isBalanced(root->left);
+    if (lh == -1)
+        return -1;
+    int rh = isBalanced(root->right);
+    if (rh == -1)
+        return -1;
+    cout << endl
+         << lh << " " << rh << " " << root->data << " " << abs(lh - rh);
+    if (abs(lh - rh) > 1)
+        return -1;
+    return 1 + max(lh, rh);
+}
+
 int main()
 {
     node *root = NULL;
@@ -172,6 +189,11 @@ int main()
     int h = maxDepth(root);
     cout << endl
          << "Height" << h;
-
+    // int v = isBalanced(root);
+    int height = isBalanced(root);
+    cout << endl
+         << "isBalance " << height << endl;
     return 0;
 }
+// 1 2 3 4 -1 -1 4 -1 -1 3 -1 -1 2 -1 -1
+// 3 9 -1 -1 20 15 -1 -1 7 -1 -1
