@@ -159,13 +159,22 @@ int isBalanced(node *root)
     return 1 + max(lh, rh);
 }
 
+int diameter(node *root, int &ans)
+{
+    if (root == NULL)
+        return 0;
+
+    int lh = diameter(root->left, ans);
+    int rh = diameter(root->right, ans);
+    ans = max(ans, lh + rh);
+    return 1 + max(lh, rh);
+}
+
 int main()
 {
     node *root = NULL;
     // create a binary tree
     root = buildTree(root);
-
-    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 
     // level order
     cout << "levelOrderTraversal" << endl;
@@ -190,10 +199,21 @@ int main()
     cout << endl
          << "Height" << h;
     // int v = isBalanced(root);
-    int height = isBalanced(root);
+    int isBalance = isBalanced(root);
     cout << endl
-         << "isBalance " << height << endl;
+         << "isBalance " << (isBalance == 1 ? "True" : "False") << endl;
+
+    int max = 0;
+    diameter(root, max);
+    cout
+        << endl
+        << "Diameter " << max << endl;
     return 0;
 }
+// 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 // 1 2 3 4 -1 -1 4 -1 -1 3 -1 -1 2 -1 -1
 // 3 9 -1 -1 20 15 -1 -1 7 -1 -1
+// 4 7 -1 -1 8 1 3 -1 -1 -1 0 -1 -1
+// 4
+// 4 7 -1 -1 8 1 3 5 -1 -1 -1 -1 0 2 0 -1 -1 -1 11 -1 -1
+// 6
