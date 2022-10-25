@@ -17,18 +17,18 @@ def find_upper_bound(A, search_element):
         elif (A[mid] < search_element):
             start = mid + 1
     print(A[upper_bound_idx])
-    return upper_bound_idx
+    return upper_bound_idx + 1
 
 
 def find_lower_bound(A, search_element):
     start = 0
     end = len(A)-1
     mid = (start + end)//2
-    upper_bound_idx = -1
+    lower_bound_idx = -1
     while (start <= end):
         mid = (start+end)//2
         if (A[mid] == search_element):
-            upper_bound_idx = mid
+            lower_bound_idx = mid
             if (mid-1 >= start and A[mid] == A[mid-1]):
                 end = mid - 1
             else:
@@ -36,10 +36,10 @@ def find_lower_bound(A, search_element):
         elif (A[mid] > search_element):
             end = mid-1
         elif (A[mid] < search_element):
-            upper_bound_idx = mid
+            lower_bound_idx = mid
             start = mid + 1
-    print(A[upper_bound_idx])
-    return upper_bound_idx
+    print(A[lower_bound_idx])
+    return lower_bound_idx + 1
 
 
 if __name__ == "__main__":
