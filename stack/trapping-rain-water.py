@@ -1,4 +1,5 @@
 # Link: https://leetcode.com/problems/trapping-rain-water/
+# Link: https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
 # Repeat with 2 pointers
 
 def trap(h):
