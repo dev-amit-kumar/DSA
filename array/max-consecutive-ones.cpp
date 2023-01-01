@@ -1,5 +1,5 @@
 // Link: https://leetcode.com/problems/max-consecutive-ones/
-
+// Link: https://practice.geeksforgeeks.org/problems/maximize-number-of-1s0905/1
 #include <iostream>
 using namespace std;
 
