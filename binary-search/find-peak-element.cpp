@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/binary-search/
+// https://leetcode.com/problems/find-peak-element
 
 #include <iostream>
 #include <vector>
@@ -12,14 +12,12 @@ int search(vector<int> &nums, int target)
     while (start <= end)
     {
         mid = (start + end) / 2;
-        if (nums[mid] == target)
-            return mid;
-        if (target < nums[mid])
-            end = mid - 1;
+        if (nums[mid] > nums[mid + 1])
+            end = mid;
         else
             start = mid + 1;
     }
-    return -1;
+    return start;
 }
 
 int main()
