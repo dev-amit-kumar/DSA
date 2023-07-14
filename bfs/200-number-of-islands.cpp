@@ -1,38 +1,50 @@
 // https://leetcode.com/problems/number-of-islands/
 
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 class Solution
 {
 private:
-    void dfs(vector<vector<char>> &grid, int rows, int cols, int i, int j)
+    void dfs(vector<vector<string>> &grid, int i, int j, int m, int n)
     {
-        if (i < 0 or j < 0 or i >= rows or j >= cols or grid[i][j] != '1')
+        if (i < 0 || i == m || j < 0 || j == n || grid[i][j] != "1")
             return;
-        grid[i][j] = 2;
-        dfs(grid, rows, cols, i, j + 1);
-        dfs(grid, rows, cols, i, j - 1);
-        dfs(grid, rows, cols, i + 1, j);
-        dfs(grid, rows, cols, i - 1, j);
+        grid[i][j] = "2";
+        dfs(grid, i++, j, m, n);
+        dfs(grid, i--, j, m, n);
+        dfs(grid, i, j++, m, n);
+        dfs(grid, i, j--, m, n);
     }
 
 public:
-    int numIslands(vector<vector<char>> &grid)
+    int numIslands(vector<vector<string>> &grid)
     {
-        int num = 0;
-        int rows = grid.size();
+        int islands = 0;
+        int m = grid.size();
         if (rows == 0)
             return 0;
-        int cols = grid[0].size();
-        for (int i = 0; i < rows; i++)
+        int n = grid[0].size();
+        for (int i = 0; i < m; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (int j = 0; j < n; j++)
             {
-                if (grid[i][j] == '1')
+                if (grid[i][j] == "1")
                 {
-                    num++;
-                    dfs(grid, rows, cols, i, j);
+                    islands++;
+                    dfs(grid, i, j, m, n);
                 }
             }
         }
-        return num;
+        return islands;
     }
 };
+
+int main()
+{
+    vector<vector<string>> grid = {};
+    cout << numIslands(grid)
+         << endl;
+}
