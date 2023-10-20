@@ -4,3 +4,4 @@
 *.exe
 .vscode
 dont_push
+my_env
