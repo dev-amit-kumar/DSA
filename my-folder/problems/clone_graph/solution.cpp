@@ -20,21 +20,28 @@ public:
 */
 
 class Solution {
-public:
-    unordered_map<Node *, Node *> visited;
-    Node* dfs(Node* node){
-        if(!node) return NULL;
-        int val = node->val;
-        if(visited[node])
-            return visited[node];
-        Node* copy = new Node (node->val);
-        visited[node] = copy;
-        for(auto neig: node->neighbors){
-            copy ->  neighbors.push_back(cloneGraph(neig));
+    Node* dfs(Node * original, unordered_map<Node*, Node*>& visited_map){
+        vector<Node*> neighbors;
+        Node* clone = new Node(original -> val);
+        visited_map[original] = clone;
+
+        for(auto it: original->neighbors){
+            if(visited_map.find(it) != visited_map.end()){
+                neighbors.push_back(visited_map[it]);
+            }else
+                neighbors.push_back(dfs(it, visited_map));
         }
-        return copy;
+        clone -> neighbors = neighbors;
+        return clone;
     }
+public:
     Node* cloneGraph(Node* node) {
-        return dfs(node);
+        unordered_map<Node*, Node*> visited_map;
+        if(node == NULL) return NULL;
+        if(node -> neighbors.size() == 0){
+            Node* clone = new Node(node -> val);
+            return clone;
+        }
+        return dfs(node, visited_map);
     }
 };
