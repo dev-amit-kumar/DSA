@@ -1,14 +1,11 @@
-class Solution(object):
-    def smallerNumbersThanCurrent(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        result = []
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        temp = sorted(nums)
+        mapping = {}
+        ans = []
+        for i in range(len(temp)):
+            if temp[i] not in mapping:
+                mapping[ temp[i] ] = i
         for i in range(len(nums)):
-            curr = 0
-            for j in range(0, len(nums)):
-                if (nums[i] > nums[j] and i != j):
-                    curr += 1
-            result.append(curr)
-        return result
+            ans.append( mapping[ nums[i] ] )
+        return ans
