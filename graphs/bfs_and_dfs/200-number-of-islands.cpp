@@ -24,7 +24,7 @@ public:
     {
         int islands = 0;
         int m = grid.size();
-        if (rows == 0)
+        if (m == 0)
             return 0;
         int n = grid[0].size();
         for (int i = 0; i < m; i++)
