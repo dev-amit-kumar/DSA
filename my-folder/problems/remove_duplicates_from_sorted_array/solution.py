@@ -8,6 +8,3 @@ class Solution:
                 slow += 1
                 nums[slow] = nums[fast]
         return slow+1
-            
-            
-            
