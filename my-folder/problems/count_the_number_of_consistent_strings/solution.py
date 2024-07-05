@@ -9,5 +9,4 @@ class Solution:
                     break
             if currResult:
                 result.append(word)
-        # print(result)
         return len(result)
