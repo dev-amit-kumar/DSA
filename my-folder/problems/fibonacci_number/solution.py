@@ -1,24 +1,12 @@
-class Solution(object):
-    def fib(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        # Approach 1
-        # a = 0
-        # b = 1
-        # c = 1
-        # if(n == 0):
-        #     return a
-        # elif (n == 1):
-        #     return b
-        # else:
-        #     for i in range(1, n):
-        #         c = a + b
-        #         a = b
-        #         b = c
-        #     return b
-        # Approach 2
-        if (n == 0 or n == 1):
+class Solution:
+    def recursion(self, n: int, dp) -> int:
+        if(n <= 1):
             return n
-        return self.fib(n-1) + self.fib(n-2)
+        if (n in dp):
+            return dp[n]
+        dp[n] = self.recursion(n-1, dp) + self.recursion(n-2, dp)
+        return dp[n]
+
+    def fib(self, n: int) -> int:
+        dp = {}
+        return self.recursion(n, dp)
