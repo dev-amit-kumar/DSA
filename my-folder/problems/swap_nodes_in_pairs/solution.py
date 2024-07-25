@@ -4,21 +4,15 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def swapPairs(self, head: ListNode) -> ListNode:
-        if head is None or head.next is None:
-            return head
-		
-        prev, cur = head, head.next
-        prev.next = cur.next
-        cur.next = prev
-        head = cur
-        while prev.next and prev.next.next: 
-            cur = prev
-            prev = prev.next
-            a = prev.next
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next: return head
+        
+        temp = head.next
+        # Swap the two nodes
+        head.next = temp.next
+        temp.next = head
+        
+        # recusrive call to swap the rest of LL
+        head.next = self.swapPairs(head.next)
 
-            cur.next = a
-            prev.next = a.next
-            a.next = prev
-			
-        return head
+        return temp
