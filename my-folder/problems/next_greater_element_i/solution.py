@@ -1,13 +1,15 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        dic={}
-        out=[]
-        for i in range(len(nums2)):
-            dic[nums2[i]]=-1
-            for j in range(i+1,len(nums2)):
-                if nums2[j]>nums2[i]:
-                    dic[nums2[i]]=nums2[j]
-                    break
-        for k in range(len(nums1)):
-            out.append(dic[nums1[k]])
-        return out
+        stack = []
+        hash_map = {}
+        for i in range(len(nums2) - 1, -1, -1):
+            while(stack and stack[-1] <= nums2[i]):
+                stack.pop()
+            if not stack:
+                hash_map[nums2[i]] = -1
+            else:
+                hash_map[nums2[i]] = stack[-1]
+            stack.append(nums2[i])
+        for i in range(len(nums1)):
+            nums1[i] = hash_map[nums1[i]]
+        return nums1
