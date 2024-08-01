@@ -8,22 +8,13 @@ class Solution:
         if head is None or head.next is None:
             return True
 
-        slow, fast = head, head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        curr = head
+        stack = []
+        while curr:
+            stack.append(curr.val)
+            curr = curr.next
+        curr = head
+        while curr and curr.val == stack.pop():
+            curr = curr.next
+        return curr is None
         
-        prev = None
-        while slow:
-            nextNode = slow.next
-            slow.next = prev
-            prev = slow
-            slow = nextNode
-        
-        left, right = head, prev
-        while right:
-            if left.val != right.val:
-                return False
-            left = left.next
-            right = right.next
-        return True
