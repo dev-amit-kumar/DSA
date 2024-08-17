@@ -1,17 +1,11 @@
-class Solution(object):
-    def reverseString(self, s):
-        """
-        :type s: List[str]
-        :rtype: None Do not return anything, modify s in-place instead.
-        """
-        # l, r = 0, len(s) - 1
-        # while l < r :
-        #     s[l], s[r] = s[r] , s[l]
-        #     l = l + 1
-        #     r = r - 1
-        
-        def reverse(l, r):
-            if l < r :
-                s[l], s[r] = s[r] , s[l]
-                reverse(l+1, r-1)
-        reverse(0, len(s)-1)
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        n = len(s)
+        mid = n // 2
+        def rec(s, i):
+            if i == mid:
+                return
+            s[i], s[n-1-i] = s[n-1-i], s[i]
+            rec(s, i+1)
+        rec(s, 0)
+        return s
