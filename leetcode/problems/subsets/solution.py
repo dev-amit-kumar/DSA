@@ -1,12 +1,13 @@
 class Solution:
     def subsets(self, nums):
-        output = [[]]
-        for num in nums:
-            newSubsets = []
-            for curr in output:
-                temp = curr.copy()
-                temp.append(num)
-                newSubsets.append(temp)
-            for curr in newSubsets:
-                output.append(curr)
-        return output
+        ans = []
+        current = []
+        self.backtrack(nums, len(nums), 0, [], ans)
+        return ans
+
+    def backtrack(self, nums, n, i, current, ans):
+        if i == n:
+            ans.append(current)
+            return
+        self.backtrack(nums, n, i+1, current, ans)
+        self.backtrack(nums, n, i+1, current + [nums[i]], ans)
