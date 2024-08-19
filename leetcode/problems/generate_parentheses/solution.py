@@ -1,19 +1,16 @@
-class Solution(object):
-    def generateParenthesis(self, N):
-        ans = []
-        def find(openB, closeB, N, s):
-            if(closeB == N):
-                ans.append(''.join(s))
-                return
-            else:
-                if(openB>closeB):
-                    s.append(')')
-                    find(openB, closeB+1, N, s)
-                    s.pop()
-                if(openB<N):
-                    s.append('(')
-                    find(openB+1, closeB, N ,s)
-                    s.pop()
+class Solution:
+    def generate(self, left, right, ans, s, n):
+        if left == right == n:
+            ans.append(s)
             return
-        find(0,0,N,[])
+        if left < n:
+            self.generate(left + 1, right, ans, s + "(", n)
+        if right < left:
+            self.generate(left, right + 1, ans, s + ")", n)
+        return
+        
+
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans = []
+        self.generate(0, 0, ans, "", n)
         return ans
