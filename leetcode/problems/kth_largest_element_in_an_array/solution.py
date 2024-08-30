@@ -1,17 +1,9 @@
-class Solution :
-    def findKthLargest ( self , nums , k ):
-        dict = {}
-        for num in nums:
-            if num not in dict :
-                dict[num] = 1
-            else :
-                dict[num] += 1
-        ans = []
-        for i in range ( min (nums), max (nums) + 1 ):
-            if i in dict .keys():
-                count = dict[i]
-                while count: 
-                    ans.append(i)
-                    count -= 1
-                    if len (ans) == len (nums) - (k - 1 ):
-                        return ans[- 1] 
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        heap = nums[0:k]
+        heapq.heapify(heap)
+        for n in nums[k:]:
+            if n > heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, n)
+        return heap[0]
