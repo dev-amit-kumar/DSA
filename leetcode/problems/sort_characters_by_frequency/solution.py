@@ -1,22 +1,11 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        freq = {}
+        freq = Counter(s)
+        heap = []
+        for char, freq in freq.items():
+            heapq.heappush(heap, (-freq, char))
         result = ''
-        for i in s:
-            if i in freq:
-                freq[i] += 1
-            else:
-                freq[i] = 1
-        freqArray = []
-        charArray = set()
-        for key, values in freq.items():
-            freqArray.append(values)
-            charArray.add(key)
-        charArray = sorted(charArray)
-        freqArray.sort(reverse=True)
-        for i in freqArray:
-            for j in charArray:
-                if freq[j]==i and j not in result:
-                    result+=j*i
-                    break
+        while(heap):
+            freq, char = heapq.heappop(heap)
+            result += (-freq * char)
         return result
