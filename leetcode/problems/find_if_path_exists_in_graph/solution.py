@@ -5,15 +5,17 @@ class Solution:
             adj_list[u].append(v)
             adj_list[v].append(u)
         
-        def dfs(node, visited):
-            if node == destination:
-                return True
-            visited.add(node)
-            for neighbor in adj_list[node]:
-                if neighbor not in visited:
-                    if dfs(neighbor, visited):
-                        return True
-            return False
+        visited = [False] * n
+        visited[source] = True
+        queue = deque([source])
 
-        visited = set()
-        return dfs(source, visited)
+        while queue:
+            temp = queue.popleft()
+            if temp == destination:
+                return True
+            for connect in adj_list[temp]:
+                if not visited[connect]:
+                    visited[connect] = True
+                    queue.append(connect)
+
+        return False
