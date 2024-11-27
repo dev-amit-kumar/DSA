@@ -1,13 +1,12 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        hashmap = {}
-        for i in range(len(nums)):
-            balance = target - nums[i]
-            if balance in hashmap and hashmap[balance] != i:
-                return [i, hashmap[balance]]
-            hashmap[nums[i]] = i
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        hash_map = {}
+
+        for i in range(n):
+            remaining = target - nums[i]
+            if remaining in hash_map:
+                return [i, hash_map[remaining]]
+            hash_map[nums[i]] = i
+
+        return []
