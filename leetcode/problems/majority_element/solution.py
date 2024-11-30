@@ -1,4 +1,8 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        nums.sort() # sorting the elements of array 
-        return nums[len(nums) // 2]
+        res = majority = 0
+        for i in nums:
+            if majority == 0:
+                res = i
+            majority += 1 if i == res else -1
+        return res
